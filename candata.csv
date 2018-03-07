@@ -1,0 +1,121 @@
+index,city,longitude,latitude,country,legality,price,cigtax,cig_taxcollection,can_taxcollection,consumption,x,y
+39,New York,-73.9808,40.7648,USA,Partial,10.76,42.54,354.48,156.4,77.44
+107,Karachi,67.114544,24.870862,Pakistan,Illegal,5.32,60.7,135.48,41.89,41.95
+111,New Delhi,77.2,28.7,India,Partial,4.38,60.39,101.2,31.45,38.26
+75,Los Angeles,-118.2439,34.0544,USA,Legal,8.14,42.54,124.88,55.1,36.06
+12,Cairo,31.23944,30.05611,Egypt,Illegal,16.15,73.13,384.87,98.78,32.59
+110,Mumbai,72.83333,18.96667,India,Partial,4.57,60.39,89.38,27.78,32.38
+58,London,-0.1275,51.50722,UK,Illegal,9.2,82.16,237.35,54.22,31.4
+29,Chicago,-87.6244,41.8756,USA,Partial,11.46,42.54,119.61,52.77,24.54
+27,Moscow,-117.0002,46.7324,Russia,Partial,11.84,47.63,128.97,50.82,22.87
+80,Toronto,-79.3849,43.6529,Canada,Partial,7.82,69.8,124.15,33.38,22.75
+38,Sydney,151.21,-33.868,Australia,Partial,10.79,56.76,138.36,45.75,22.59
+37,Melbourne,144.9632,-37.8142,Australia,Partial,10.84,56.76,132.75,43.9,21.58
+47,Houston,-95.3677,29.7589,USA,Partial,10.03,42.54,89.13,39.32,20.89
+97,Sao Paulo,-46.6334,-23.5507,Brazil,Partial,6.38,64.94,68.55,19.81,16.55
+85,Madrid,-3.69194,40.41889,Spain,Partial,7.47,78.09,93.4,22.45,16.01
+79,Rome,12.48278,41.89306,Italy,Partial,7.86,75.68,88.16,21.86,14.82
+54,Phoenix,-112.0773,33.4486,USA,Partial,9.35,42.54,58.26,25.71,14.65
+119,Bogota,-74.184135,4.252428,Colombia,Partial,2.2,49.44,15.8,6,14.53
+30,Philadelphia,-75.1327,40.0115,USA,Partial,11.3,42.54,68.37,30.16,14.22
+101,Montreal,-73.554,45.5088,Canada,Partial,6.15,69.8,60.52,16.27,14.1
+55,Paris,2.320582,48.859489,France,Illegal,9.3,80.3,102.25,23.9,13.69
+46,Dallas,-96.7969,32.7763,USA,Partial,10.03,42.54,51.01,22.5,11.95
+21,Berlin,13.38333,52.51667,Germany,Partial,13.53,72.9,114.77,29.55,11.64
+41,Brisbane,153.0235,-27.469,Australia,Partial,10.63,56.76,66.88,22.12,11.09
+86,Calgary,-114.0626,51.0531,Canada,Partial,7.3,69.8,52.23,14.05,10.25
+17,Auckland,174.78333,-36.85,New Zealand,Partial,14.77,77.34,106.03,25.73,9.28
+78,Manchester,-2.23333,53.46667,UK,Illegal,7.88,82.16,58.99,13.48,9.11
+109,Rio de Janeiro,-43.2094,-22.911,Brazil,Partial,5.11,64.94,28.82,8.33,8.69
+100,Barcelona,2.17694,41.3825,Spain,Partial,6.23,78.09,39.59,9.51,8.14
+43,Prague,14.42139,50.08861,Czech Rep.,Partial,10.47,77.42,63.95,15.5,7.89
+57,San Francisco,-122.463,37.7648,USA,Legal,9.27,42.54,30.94,13.65,7.85
+95,Ottawa,-75.69,45.421,Canada,Partial,6.62,69.8,35.43,9.53,7.67
+114,Montevideo,-56.16667,-34.86694,Uruguay,Legal,4.15,66.75,19.54,5.5,7.06
+62,Milan,9.19034,45.46416,Italy,Partial,8.85,75.68,46.06,11.42,6.88
+35,Adelaide,138.5999,-34.9274,Australia,Partial,10.91,56.76,41.6,13.75,6.72
+84,Seattle,-122.3301,47.6038,USA,Legal,7.58,42.54,20.59,9.08,6.39
+25,Vienna,-77.2652,38.9013,Austria,Partial,12.87,74,59.21,15.02,6.22
+81,Denver,-104.9653,39.7348,USA,Legal,7.79,42.54,20.53,9.06,6.2
+11,"Washington, DC",-77.0366,38.895,USA,Partial,18.08,42.54,47.51,20.96,6.18
+103,Abuja,7.5,9.05,Nigeria,Illegal,5.88,20.63,7.4,6.73,6.1
+34,Boston,-71.0596,42.3605,USA,Legal,11.01,42.54,28.59,12.61,6.1
+28,Hamburg,10,53.55,Germany,Partial,11.64,72.9,50.16,12.92,5.91
+105,Mexico City,-99.14556,19.41944,Mexico,Partial,5.87,65.87,22.58,6.43,5.84
+104,Lima,-76.8333,-12,Peru,Partial,5.88,37.83,12.28,6.09,5.52
+5,Bangkok,100.51667,13.75,Thailand,Partial,24.81,73.13,99.11,25.44,5.46
+8,Shanghai,121.46667,31.16667,China,Illegal,20.82,44.43,49.12,20.75,5.31
+96,Vancouver,-123.1139,49.2609,Canada,Partial,6.4,69.8,23.44,6.3,5.25
+64,Marseille,5.37639,43.29667,France,Illegal,8.69,80.3,36.23,8.47,5.19
+89,Buenos Aires,-58.439558,-34.617803,Argentina,Partial,7.13,69.84,25.32,6.81,5.09
+82,Naples,-81.7948,26.142,Italy,Partial,7.75,75.68,29.82,7.4,5.08
+18,Munich,11.56667,48.13333,Germany,Partial,14.56,72.9,50.9,13.1,4.8
+9,Beijing,116.39139,39.905,China,Illegal,20.52,44.43,43.1,18.21,4.73
+73,Warsaw,21.03333,52.21667,Poland,Partial,8.31,80.29,29.27,6.84,4.39
+56,Miami,-80.1937,25.7743,USA,Partial,9.27,42.54,16.24,7.16,4.12
+67,Birmingham,-1.9,52.48333,UK,Illegal,8.58,82.16,27.73,6.34,3.93
+77,Amsterdam,4.9,52.378,Netherlands,Partial,7.89,73.4,20.94,5.35,3.61
+32,Cologne,6.95778,50.94222,Germany,Partial,11.14,72.9,28.51,7.34,3.51
+52,Zagreb,15.95,45.8,Croatia,Partial,9.43,75.26,24.35,6.07,3.43
+102,Kiev,-103.42357,20.84958,Ukraine,Partial,6,74.78,14.73,3.7,3.28
+74,Lyon,4.84139,45.75889,France,Illegal,8.2,80.3,19.45,4.55,2.95
+90,Brussels,4.3547,50.8467,Belgium,Partial,7.09,75.92,15.5,3.83,2.88
+98,Rotterdam,4.41667,51.95,Netherlands,Partial,6.33,73.4,12.75,3.26,2.74
+66,Toulouse,1.44194,43.60444,France,Illegal,8.62,80.3,18.67,4.36,2.7
+83,Leeds,-1.54917,53.79972,UK,Illegal,7.67,82.16,16.93,3.87,2.69
+45,Wellington,174.77722,-41.28889,New Zealand,Partial,10.11,77.34,19.53,4.74,2.5
+36,Istanbul,29.024802,41.179191,Turkey,Partial,10.87,82.13,21.79,4.98,2.44
+44,Frankfurt,8.67972,50.11361,Germany,Partial,10.29,72.9,18.06,4.65,2.41
+94,Sofia,23.33333,42.7,Bulgaria,Illegal,6.66,82.65,12.83,2.91,2.33
+19,Helsinki,24.94861,60.17333,Finland,Partial,14.42,81.53,27.12,6.24,2.31
+26,Copenhagen,12.56889,55.67611,Denmark,Partial,12.47,74.75,20.65,5.18,2.22
+65,Glasgow,-4.27,55.87,UK,Illegal,8.65,82.16,15.21,3.47,2.14
+53,Nice,7.26833,43.70194,France,Illegal,9.4,80.3,15.8,3.69,2.09
+22,Stuttgart,9.1775,48.77611,Germany,Partial,13.5,72.9,20.2,5.2,2.05
+31,Bucharest,26.08333,44.4,Romania,Partial,11.18,75.41,17.23,4.29,2.04
+40,Düsseldorf,6.81667,51.21667,Germany,Partial,10.7,72.9,15.82,4.07,2.03
+51,Canberra,149.1289,-35.2819,Australia,Partial,9.65,56.76,10.96,3.63,2
+115,Johannesburg,28.0328,-26.1633,South Africa,Illegal,4.01,48.8,3.76,1.45,1.92
+70,Edinburgh,-3.19889,55.95,UK,Illegal,8.41,82.16,12.22,2.79,1.77
+42,Hanover,9.73861,52.37444,Germany,Partial,10.51,72.9,13.46,3.47,1.76
+6,Dublin,-6.26036167,53.34929607,Ireland,Illegal,21.63,77.8,29.31,7.07,1.74
+49,Zurich,8.54,47.37861,Switzerland,Partial,9.71,61.2,10.33,3.17,1.74
+76,Liverpool,-3,53.41667,UK,Illegal,7.94,82.16,10.86,2.48,1.67
+24,Stockholm,18.06861,59.32944,Sweden,Illegal,13.2,68.84,15.06,4.11,1.66
+72,Strasbourg,7.75222,48.57333,France,Illegal,8.35,80.3,11.13,2.6,1.66
+4,Hong Kong,114.135442,22.346578,China,Illegal,27.48,44.43,19.72,8.33,1.62
+50,Montpellier,3.87723,43.61092,France,Illegal,9.7,80.3,12.21,2.85,1.57
+2,Seoul,126.939358,37.564771,South Korea,Illegal,32.44,61.99,31.61,9.57,1.57
+88,San Jose,-84.08333,9.93333,Costa Rica,Partial,7.23,69.76,7.84,2.11,1.56
+1,Tokyo,-87.413557,39.456999,Japan,Illegal,32.66,64.36,32.14,9.37,1.53
+93,Budapest,19.04083,47.49833,Hungary,Illegal,6.74,77.26,7.7,1.87,1.48
+60,Riga,24.10694,56.9475,Latvia,Illegal,9,76.89,10.23,2.5,1.48
+10,Oslo,10.775647,59.972175,Norway,Partial,19.14,68.83,19.28,5.26,1.46
+68,Kuala Lumpur,101.687618,3.130236,Malaysia,Illegal,8.54,55.36,6.61,2.24,1.4
+7,Tallinn,24.7454,59.4372,Estonia,Partial,20.98,77.24,22.13,5.38,1.37
+112,Antwerp,4.3997,51.2206,Belgium,Partial,4.29,75.92,4.1,1.01,1.26
+15,Minsk,27.56184,53.90225,Belarus,Illegal,15.8,51.15,9.08,3.33,1.12
+14,Belfast,-5.93833,54.59667,Ireland,Illegal,15.81,77.8,13.55,3.27,1.1
+113,Astana,71.437003,51.136306,Kazakhstan,Illegal,4.22,39.29,1.78,0.85,1.07
+61,Bratislava,17.11278,48.14472,Slovakia,Illegal,8.92,81.54,7.24,1.67,1
+92,Graz,15.43333,47.06667,Austria,Partial,6.84,74,4.81,1.22,0.95
+117,Jakarta,106.841036,-6.173292,Indonesia,Illegal,3.79,53.4,1.92,0.68,0.95
+106,Cape Town,18.4289,-33.9351,South Africa,Illegal,5.82,48.8,2.47,0.95,0.87
+33,Geneva,6.14706,46.22234,Switzerland,Partial,11.12,61.2,5.9,1.81,0.87
+71,Lisbon,-9.16667,38.71667,Portugal,Partial,8.36,74.51,4.69,1.18,0.75
+69,Monterrey,-100.30861,25.67139,Mexico,Partial,8.45,65.87,4.17,1.19,0.75
+48,Vilnius,25.28333,54.68333,Lithuania,Illegal,10,75.76,5.2,1.29,0.69
+99,Ljubljana,14.51667,46.05,Slovenia,Partial,6.32,80.41,3.43,0.8,0.67
+63,Varna,27.91694,43.20778,Bulgaria,Illegal,8.83,82.65,4.84,1.1,0.66
+16,Athens,-83.3767,33.9596,Greece,Partial,14.95,79.95,7.42,1.74,0.62
+108,Manila,120.99501,14.5946,Philippines,Illegal,5.24,74.27,2.32,0.59,0.6
+120,Quito,-78.50972,-0.21861,Ecuador,Partial,1.34,70.39,0.56,0.15,0.6
+59,Colombo,79.972122,6.846133,Sri Lanka,Illegal,9.12,73.78,3.98,1.01,0.59
+118,Asuncion,-57.597455,-25.338533,Paraguay,Partial,2.22,16,0.16,0.19,0.46
+13,Reykjavik,-21.88333,64.15,Iceland,Illegal,15.92,56.4,3.97,1.32,0.44
+116,Panama City,-79.5,9,Panama,Illegal,3.85,56.52,0.81,0.27,0.37
+87,Luxembourg City,6.13278,49.61056,Luxembourg,Partial,7.26,70.24,1.62,0.43,0.32
+23,Thessaloniki,22.95,40.63333,Greece,Partial,13.49,79.95,3.17,0.75,0.29
+3,Kyoto,-88.006798,42.95904,Japan,Illegal,29.65,64.36,4.64,1.35,0.24
+91,Santo Domingo,-69.89333,18.47639,Dominican Rep.,Illegal,6.93,58.87,0.67,0.21,0.16
+20,Singapore,103.808053,1.351616,Singapore,Illegal,14.01,66.23,0.14,0.04,0.02
