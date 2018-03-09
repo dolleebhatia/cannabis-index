@@ -22,48 +22,54 @@ function preload() {
   // Load Cannabis Data. Works with both CSV and JSON files
  // //candata = loadStrings('candata.csv');
     canjson = loadJSON("candata.json");
+
+
+    var projection = d3.geo.equirectangular()
+      .translate([512, 256]).scale(163);
+
+    d3.json('world.json', function (err, data) {
+
+      d3.select("#loading").transition().duration(500)
+        .style("opacity", 0).remove();
+
+      var countries = topojson.feature(data, data.objects.countries);
+
+      var canvas = d3.select("body").append("canvas")
+        .style("display", "none")
+        .attr({width: "1024px", height: "512px"});
+
+      var context = canvas.node().getContext("2d");
+
+      var path = d3.geo.path()
+        .projection(projection).context(context);
+
+      context.strokeStyle = "#666";
+      context.lineWidth = 0.25;
+      context.fillStyle = "#222";
+
+      context.beginPath();
+
+      path(countries);
+
+      context.fill();
+      context.stroke();
+      maptextureurl = loadImage(canvas.node().toDataURL());
+      console.log(canvas.node().toDataURL());
+      canvas.remove();
+    });
+
 }
 
 
 
 function setup(){
-  var c = createCanvas(ww, hh, WEBGL);
-  var canvas = c.canvas;
-  //createCanvas(1024,512, WEBGL);
+  //var c = createCanvas(ww, hh, WEBGL);
+  //var canvas = c.canvas;
+  //  var canvas = document.getElementById('defaultCanvas');
+  createCanvas(1024,512, WEBGL);
 
       /*eslint-disable */
 
-      var projection = d3.geo.equirectangular()
-        .translate([512, 256]).scale(163);
-
-      d3.json('world.json', function (err, data) {
-
-        d3.select("#loading").transition().duration(500)
-          .style("opacity", 0).remove();
-
-        var countries = topojson.feature(data, data.objects.countries);
-
-        canvas = d3.select("body").append("canvas")
-          .attr({width: "1024px", height: "512px"});
-
-        var context = canvas.node().getContext("2d");
-
-        var path = d3.geo.path()
-          .projection(projection).context(context);
-
-        context.strokeStyle = "#333";
-        context.lineWidth = 0.25;
-        context.fillStyle = "#fff";
-
-        context.beginPath();
-
-        path(countries);
-
-        context.fill();
-        context.stroke();
-
-        console.log(canvas.node().toDataURL());
-      });
 
 
 
@@ -135,8 +141,8 @@ function draw(){
   translate(0, 0, zoomZ);
   rotateY(rx);
   rotateX(ry);
-  //texture(img);
-  //sphere(earthradius);
+  texture(maptextureurl);
+  sphere(earthradius);
 
   // Rotate the globe if the mouse is pressed
   if (mouseIsPressed) {
@@ -162,7 +168,7 @@ function draw(){
       r_axis = cityxy.get(i,7);
       angle_b = (cityxy.get(i,8));
 0
-      boxheight = d_mag*20 - earthradius/2;
+      boxheight = d_mag*10 - earthradius/2;
       x = cX;
       y = cY;
       z = cZ;
@@ -181,8 +187,8 @@ function draw(){
       fill(255);
         //label[i].text(label[i], 50, 50);
         //texture(label[i]);
-      //normalMaterial();
-      //box(boxheight,3,3);
+      normalMaterial();
+      box(boxheight,1,1);
       pop();
 
   }
