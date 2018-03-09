@@ -7,6 +7,9 @@
   <!-- <script language="javascript" type="text/javascript" src="codepen.js"></script> -->
   <script src='https://unpkg.com/mapbox@1.0.0-beta9/dist/mapbox-sdk.min.js'></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.js'></script>
+
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
 
   <style type="text/css">
@@ -109,14 +112,12 @@
 </head>
 
 <body>
-  <div id="container"></div>
+  <div id="d3p5"></div>
 
-<div id="info">
-  <strong><a href="http://www.chromeexperiments.com/globe">WebGL Globe</a></strong> <span class="bull">&bull;</span> Created by the Google Data Arts Team <span class="bull">&bull;</span> Data acquired from <a href="http://sedac.ciesin.columbia.edu/gpw/">SEDAC</a>
-</div>
 
-<div id="currentInfo">
-<span id="year1990" class="year">Consumption</span>
+    <div id="loading">Loading...</div>
+
+
 
 </div>
 </body>
