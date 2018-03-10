@@ -1,4 +1,4 @@
-
+//Add callback
 
 function getMaptexture( ){
 
@@ -12,31 +12,24 @@ function getMaptexture( ){
 
     var countries = topojson.feature(data, data.objects.countries);
 
-    var canvas = d3.select("body").append("canvas")
-      .style("display", "none")
-      .attr({width: "1024px", height: "512px"});
+    canvas = d3.select("body").append("canvas")
+      .attr({width: "1024px", height: "512px"})
+      .style("display", "none");
 
     var context = canvas.node().getContext("2d");
-
     var path = d3.geo.path()
       .projection(projection).context(context);
 
-    context.strokeStyle = "#666";
+    context.strokeStyle = "#333";
     context.lineWidth = 0.25;
     context.fillStyle = "#222";
-
     context.beginPath();
-
     path(countries);
-
     context.fill();
     context.stroke();
-  //  maptextureurl = canvas.node().toDataURL();
-      maptextureurl = loadImage(canvas.node().toDataURL());
-    //maptextureurl.isTexture = true;
-    //console.log(maptextureurl);
+    maptextureurl = loadImage(canvas.node().toDataURL('image/png'),function() {console.log('loaded');d3loaded = true;});
     return maptextureurl;
     canvas.remove();
-  });
+});
 
 }

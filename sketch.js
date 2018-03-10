@@ -7,6 +7,7 @@ let maptextureurl;
 let textureW = 1024;
 let textureH=512;
 let path;
+let d3loaded = false;
 let rx = 0;let ry = 0;let earthradius =200;let angle = 0;
 
 rows = [];label = [];
@@ -14,40 +15,9 @@ let cityxy;let candata;let canjsoncities;let r = earthradius;let zoomZ = -50;
 
 function preload() {
 
-
-        var projection = d3.geo.equirectangular()
-          .translate([512, 256]).scale(163);
-
-        d3.json('world.json', function (err, data) {
-
-          d3.select("#loading").transition().duration(500)
-            .style("opacity", 0).remove();
-
-          var countries = topojson.feature(data, data.objects.countries);
-
-          canvas = d3.select("body").append("canvas")
-            .attr({width: "1024px", height: "512px"})
-            .style("display", "none");
-
-
-          var context = canvas.node().getContext("2d");
-
-          var path = d3.geo.path()
-            .projection(projection).context(context);
-
-            context.strokeStyle = "#333";
-          context.lineWidth = 0.25;
-          context.fillStyle = "#222";
-          context.beginPath();
-          path(countries);
-          context.fill();
-          context.stroke();
-          maptextureurl = loadImage(canvas.node().toDataURL('image/png'));
-          canvas.remove();
-
-        });
-
-
+  getMaptexture();
+  console.log(maptextureurl);
+  //add callback
 
   img = loadImage('world.jpg');
 //  mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/-0.000,0.00000,0.2,0,0/1280x1280@2x?access_token=pk.eyJ1IjoiZG9sbGVlIiwiYSI6ImNqZTh5dWFjZzA0dTQyd25zdnJ1YjFwc2YifQ.uVTRMcrpvTQo1m13yZf--Q');
@@ -63,13 +33,7 @@ function preload() {
 
 
 function setup(){
-  //var c = createCanvas(ww, hh, WEBGL);
-  //var canvas = c.canvas;
-  createCanvas(1024,512, WEBGL);
-
-      /*eslint-disable */
-
-
+  createCanvas(ww,hh, WEBGL);
 
   cityxy = new p5.Table();
   cityxy.addColumn('id');
@@ -108,7 +72,6 @@ let phi = PI/2 - radians(lon) ;
     let magmax = (pow(10, 1));
     let d = map(mag, 0, magmax, 0, 5);
     //console.log(d);
-
     rows[i] = cityxy.addRow();
     rows[i].setNum('id', cityxy.getRowCount() - 1);
     rows[i].set('mag', d);
@@ -133,11 +96,13 @@ zoomZ += event.delta;
 }
 let consolecont = false;
 function draw(){
-  //translate(width/2, height/2, zoomZ);
+
   background(50);
   translate(0, 0, zoomZ);
   rotateY(rx);
   rotateX(ry);
+  if (d3loaded){texture(maptextureurl);}
+  else {setTimeout(function(){ console.log("timeout3000"); }, 3000);}
   texture(maptextureurl);
     sphere(earthradius);
 
