@@ -3,10 +3,10 @@ let ww = 1024;
 let hh = 512;
 let mapimg;
 let img;
-let maptexture;
 let maptextureurl;
 let textureW = 1024;
 let textureH=512;
+let path;
 let rx = 0;let ry = 0;let earthradius =200;let angle = 0;
 
 rows = [];label = [];
@@ -14,17 +14,51 @@ let cityxy;let candata;let canjsoncities;let r = earthradius;let zoomZ = -50;
 
 function preload() {
 
-getMaptexture();
 
- console.log(maptextureurl);
-  //backup imgae
-  //img = loadImage('world.jpg');
+        var projection = d3.geo.equirectangular()
+          .translate([512, 256]).scale(163);
+
+        d3.json('world.json', function (err, data) {
+
+          d3.select("#loading").transition().duration(500)
+            .style("opacity", 0).remove();
+
+          var countries = topojson.feature(data, data.objects.countries);
+
+          canvas = d3.select("body").append("canvas")
+            .attr({width: "1024px", height: "512px"})
+            .style("display", "none");
+
+
+          var context = canvas.node().getContext("2d");
+
+          var path = d3.geo.path()
+            .projection(projection).context(context);
+
+          context.strokeStyle = "#333";
+          context.lineWidth = 0.25;
+          context.fillStyle = "#fff";
+          context.beginPath();
+          path(countries);
+          context.fill();
+          context.stroke();
+          maptextureurl = loadImage(canvas.node().toDataURL('image/png'));
+
+          canvas.remove();
+
+        });
+
+
+
+  img = loadImage('world.jpg');
+//  mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/dark-v9/static/-0.000,0.00000,0.2,0,0/1280x1280@2x?access_token=pk.eyJ1IjoiZG9sbGVlIiwiYSI6ImNqZTh5dWFjZzA0dTQyd25zdnJ1YjFwc2YifQ.uVTRMcrpvTQo1m13yZf--Q');
+  //mapimg = loadImage('https://api.mapbox.com/styles/v1/mapbox/cj5banmps1bqr2rqwsy5aeijw/static/' +
+      //clon + ',' + clat + ',' + zoom + '/' +
+//  ww + 'x' + hh +'?access_token=pk.eyJ1IjoiZG9sbGVlIiwiYSI6ImNqZTh6MmgyeDAwYTAzM3M1dmdnN3BhMW8ifQ.LEZ3tpEA4sLQ-UfanFHnmQ');
+
   // Load Cannabis Data. Works with both CSV and JSON files
  // //candata = loadStrings('candata.csv');
     canjson = loadJSON("candata.json");
-    //
-
-
 }
 
 
@@ -32,10 +66,12 @@ getMaptexture();
 function setup(){
   //var c = createCanvas(ww, hh, WEBGL);
   //var canvas = c.canvas;
-  //  var canvas = document.getElementById('defaultCanvas');
   createCanvas(1024,512, WEBGL);
 
-  //console.log(maptextureurl);
+      /*eslint-disable */
+
+
+
   cityxy = new p5.Table();
   cityxy.addColumn('id');
   cityxy.addColumn('mag');
@@ -103,8 +139,8 @@ function draw(){
   translate(0, 0, zoomZ);
   rotateY(rx);
   rotateX(ry);
-  //  texture(maptextureurl);
-  sphere(earthradius);
+  texture(maptextureurl);
+    sphere(earthradius);
 
   // Rotate the globe if the mouse is pressed
   if (mouseIsPressed) {
@@ -129,8 +165,8 @@ function draw(){
       cZ = cityxy.get(i,5);
       r_axis = cityxy.get(i,7);
       angle_b = (cityxy.get(i,8));
-0
-      boxheight = d_mag*10 - earthradius/2;
+
+      boxheight = d_mag*20 - earthradius/2;
       x = cX;
       y = cY;
       z = cZ;
@@ -149,8 +185,8 @@ function draw(){
       fill(255);
         //label[i].text(label[i], 50, 50);
         //texture(label[i]);
-      normalMaterial();
-      box(boxheight,1,1);
+      //normalMaterial();
+      //box(boxheight,3,3);
       pop();
 
   }
