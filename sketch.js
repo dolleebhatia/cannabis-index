@@ -43,7 +43,6 @@ function preload() {
           context.fill();
           context.stroke();
           maptextureurl = loadImage(canvas.node().toDataURL('image/png'));
-
           canvas.remove();
 
         });
