@@ -35,9 +35,9 @@ function preload() {
           var path = d3.geo.path()
             .projection(projection).context(context);
 
-          context.strokeStyle = "#333";
+            context.strokeStyle = "#333";
           context.lineWidth = 0.25;
-          context.fillStyle = "#fff";
+          context.fillStyle = "#222";
           context.beginPath();
           path(countries);
           context.fill();
@@ -165,7 +165,7 @@ function draw(){
       r_axis = cityxy.get(i,7);
       angle_b = (cityxy.get(i,8));
 
-      boxheight = d_mag*20 - earthradius/2;
+      boxheight = d_mag*10 - earthradius/2;
       x = cX;
       y = cY;
       z = cZ;
@@ -184,8 +184,8 @@ function draw(){
       fill(255);
         //label[i].text(label[i], 50, 50);
         //texture(label[i]);
-      //normalMaterial();
-      //box(boxheight,3,3);
+      normalMaterial();
+      box(boxheight,3,3);
       pop();
 
   }
