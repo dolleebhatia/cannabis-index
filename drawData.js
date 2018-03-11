@@ -1,22 +1,20 @@
 
-function drawData(){
-  let cityname;let x_axis;let r_axis;let d_mag;let angle_b;
-  let x; let y; let z; let boxheight;
+function drawData(row){
 
-      for (let i = 0; i< canjsoncities.length; i++){
 
-    this.d_mag = cityxy.get(i,1);
-    this.cityname = cityxy.get(i,2);
-    this.x = cityxy.get(i,3);
-    this.y = cityxy.get(i,4);
-    this.z = cityxy.get(i,5);
-    this.r_axis = cityxy.get(i,7);
-    this.angle_b = (cityxy.get(i,8));
+    this.row = row;
+    this.d_mag = cityxy.getNum(this.row,1);
+    this.cityname = cityxy.get(this.row,2);
+    this.x = cityxy.get(this.row,3);
+    this.y = cityxy.get(this.row,4);
+    this.z = cityxy.get(this.row,5);
+    this.r_axis = cityxy.get(this.row,7);
+    this.angle_b = (cityxy.get(this.row,8));
+    this.country = cityxy.get(this.row,9);
+    this.legality = cityxy.get(this.row,10);
     this.boxheight = this.d_mag*10 - r/2;
     //this.box;
     this.color;
-    this.legality;
-    this.country;
 
 
       //if (!consolecont){
@@ -49,6 +47,6 @@ function drawData(){
       pop();
 
 
-    }
+    
 //  beginRotate = true;
 }

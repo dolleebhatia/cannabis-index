@@ -59,7 +59,9 @@ function draw(){
   let dirX = mouseX - width / 2;
   let dirY = mouseY - height / 2;
 
-  drawData();
+  for (let i = 0; i< cityxy.rows.length; i++){
+  drawData(i);
+  }
 }
 
 function mouseWheel(event) {
