@@ -14,12 +14,25 @@ let city3d;
 rows = [];label = [];
 let cityxy;let candata;let canjsoncities;let zoomZ = -50;
 
+
+
 function preload() {
-  city3d = loadModel('NYC.obj');
+  //city3d = loadModel('NYC.obj');
 
   //Load d3 stuff
+
   getMaptexture();
-  console.log(maptextureurl);
+
+
+
+  //var geo = geodecoder(countries.features);
+
+  //var textureCache = memoize(function (cntryID, color) {
+    //var country = geo.find(cntryID);
+    //return mapTexture(country, color);
+
+
+//  console.log(maptextureurl);
   //add callback
 
   //backup img for debugging
@@ -27,6 +40,7 @@ function preload() {
 
   // Load Cannabis Data. Works with both CSV and JSON files
   ///candata = loadStrings('candata.csv');
+  worldjson = loadJSON("world.json");
   canjson = loadJSON("candata.json");
 }
 

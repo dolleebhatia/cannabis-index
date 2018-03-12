@@ -28,7 +28,7 @@ function drawData(row){
         //    rotateZ(angle_b, abs(-r_axis.z));
         //   rotateY(angle_b, abs(r_axis.y));
         //   rotateX(angle_b, abs(r_axis.x));
-      fill(255);
+
         //label[i].text(label[i], 50, 50);
         //texture(label[i]);
 
@@ -42,11 +42,15 @@ function drawData(row){
         //pop();
       //} else {
       normalMaterial();
-      box(this.boxheight,3,3);
-  //  }
+      //for (i=0; i<this.boxheight; i++){
+      box(3,3,3);
+      //}
       pop();
 
+      if (this.legality = "Partial"){
+        //getMaptexture(this.country,#006400);
+      }
 
-    
+
 //  beginRotate = true;
 }
