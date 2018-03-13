@@ -4,9 +4,6 @@ let hh = 768;
 let mapimg;
 let img;
 let maptextureurl;
-let textureW = 1024;
-let textureH=600;
-let path;
 let d3loaded = false;
 let rx = 0;let ry = 0;let r =300;let angle = 0;
 let city3d;
@@ -15,25 +12,11 @@ rows = [];label = [];
 let cityxy;let candata;let canjsoncities;let zoomZ = -50;
 
 
-
 function preload() {
   //city3d = loadModel('NYC.obj');
 
   //Load d3 stuff
-
   getMaptexture();
-
-
-
-  //var geo = geodecoder(countries.features);
-
-  //var textureCache = memoize(function (cntryID, color) {
-    //var country = geo.find(cntryID);
-    //return mapTexture(country, color);
-
-
-//  console.log(maptextureurl);
-  //add callback
 
   //backup img for debugging
   //img = loadImage('world.jpg');

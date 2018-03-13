@@ -26,33 +26,40 @@ function getMaptexture(geojson,color){
 function drawMap(world, data) {
   //d3.json('world.json', function (err, data) {
 
+      canvas = d3.select("body").append("canvas")
+        .attr({width: "1024px", height: "512px"})
+        .style("display", "none");
+
+
   d3.select("#loading").transition().duration(500)
     .style("opacity", 0).remove();
 
   var countries = topojson.feature(world, world.objects.countries);
   var features = topojson.feature(world, world.objects.countries).features;
+  console.log(features);
   //var testcountry = countries.find("id");
-//  console.log(testcountry);
+ //console.log(countries);
   var cancountryname ={};
+
 
   data.cities.forEach(function (d) {
       cancountryname[d.country] = {
-      legality: +d.legality
+      city: d.city,
+      legality: d.legality,
       }
     });
+  //
 
-    features.forEach(function (d) {
-       d.details = cancountryname[d.properties.name] ? cancountryname[d.properties.name] : {};
-
-   });
-
-
-
-
-
-    canvas = d3.select("body").append("canvas")
-      .attr({width: "1024px", height: "512px"})
-      .style("display", "none");
+    features.forEach(function (e) {
+      //  for (i=0; i<cancountryname.length; i++){
+        var details = cancountryname ? cancountryname : {};
+      //  console.log(cancountryname);
+    //  console.log(details);
+    //  console.log(d.id);
+      if (details.hasOwnProperty(e.id)){
+       return e.id
+        }
+     });
 
 
     context = canvas.node().getContext("2d");
@@ -60,51 +67,44 @@ function drawMap(world, data) {
     var path = d3.geo.path()
       .projection(projection).context(context);
 
-    context.strokeStyle = "#333";
+    context.strokeStyle = "#111";
     context.lineWidth = 0.25;
     context.fillStyle = color || "#222";
     context.beginPath();
     path(countries);
-    path(geojson);
-
-
-    // if (d3.selectAll = function(d) {return d.legality; } === "Partial"){
-    //      context.fillStyle = "#98FB98";
-    //   }
-
     context.fill();
     context.stroke();
 
-  var map = canvas.append("g")
-    .attr("class", "map")
+    //Partial USA India Russia Canada Australia | Brazil Spain Italy Colombia Germany |
+    // New Zealand Czech Rep Austria Mexico Peru Thailand | France Argentina Poland Netherlands
+    //start --> Croatia Ukaraine Belgium Turkey Bulgaria Denmark Romani Switzerland Costa Rica Norway Estonia Portugal Slovenia
+    //Greece Ecuador Paraguay
+    context.fillStyle = "#191900";
+    context.beginPath();
+    var partial = ["168","73","135","27","8","22","49","79", "35","41", "120","40","9","102","124","156" ,"55","4", "127", "117"];
+    for (i = 0; i <partial.length; i++) {
+    path(features[partial[i]]);
+    }
+    context.fill();
+    context.stroke();
 
-  map.append("g")
-    .selectAll("path")
-    .data(features)
-    .enter().append("path")
-    .attr("name", function (d) {
-      return d.properties.name;
-        console.log(d.properties.name);
-    })
-    .attr("id", function (d) {
-        console.log(d.id);
-        return d.id;
+  //  d3.select("body").append("canvas")
 
-    })
-    .attr("d", path)
-    
-    //.style("fill", function (d) {
-    // .attr("legality", function (d) {
-    //     d3.select(".country")
-    // //  return d.details && d.details.legality;
-    //   //console.log(d.details);
-    //   console.log("10");
-    //   })
+    // d3.select('#current').append("canvas")
+    //     .selectAll("path")
+    //      .data(features)
+    //      .enter().append("path")
+    // //function fill(obj, color) {
+    //   context.beginPath()
+    //   path(obj)
+    //   context.fillStyle = color
+    //   context.fill()
+    //}
 
 
     maptextureurl = loadImage(canvas.node().toDataURL('image/png'),function() {console.log('loaded');d3loaded = true;});
     return maptextureurl;
-    canvas.remove();
-}
+    //canvas.remove();
 
-}
+ }
+ }
