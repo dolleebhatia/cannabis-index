@@ -5,7 +5,7 @@ let mapimg;
 let img;
 let maptextureurl;
 let d3loaded = false;
-let rx = 0;let ry = 0;let r =300;let angle = 0;
+let rx = 0;let ry = 0;let r =200;let angle = 0;
 let city3d;
 
 rows = [];label = [];
@@ -35,12 +35,16 @@ function setup(){
 
 function draw(){
   background(20);
+  //ortho();
 
   pointLight(255,255,255, 0, -1, -1);
   pointLight(255,255,255, -1, -1, -1);
   ambientLight(255,255,255);
 
-  translate(0, 0, zoomZ);
+  translate(0, 50, zoomZ);
+  rotateX(PI/32);
+
+
   rotateY(rx);
   rotateX(ry);
   if (d3loaded){texture(maptextureurl);}
