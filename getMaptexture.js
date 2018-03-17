@@ -88,18 +88,16 @@ function drawMap(world, data) {
     context.fill();
     context.stroke();
 
-  //  d3.select("body").append("canvas")
 
-    // d3.select('#current').append("canvas")
-    //     .selectAll("path")
-    //      .data(features)
-    //      .enter().append("path")
-    // //function fill(obj, color) {
-    //   context.beginPath()
-    //   path(obj)
-    //   context.fillStyle = color
-    //   context.fill()
-    //}
+    context.fillStyle = "#191900";
+    context.beginPath();
+    var illegal = [];
+    for (i = 0; i <partial.length; i++) {
+    path(features[illegal[i]]);
+    }
+    context.fill();
+    context.stroke();
+
 
 
     maptextureurl = loadImage(canvas.node().toDataURL('image/png'),function() {console.log('loaded');d3loaded = true;});
