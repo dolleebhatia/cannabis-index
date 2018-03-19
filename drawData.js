@@ -12,7 +12,7 @@ function drawData(row){
     this.angle_b = (cityxy.get(this.row,8));
     this.country = cityxy.get(this.row,9);
     this.legality = cityxy.get(this.row,10);
-    this.boxheight = this.d_mag*10 - r/2;
+    this.boxheight = this.d_mag*20 - r/2;
     //this.box;
     this.color;
 
@@ -41,15 +41,22 @@ function drawData(row){
         //model(city3d);
         //pop();
       //} else {
-      normalMaterial();
-      //for (i=0; i<this.boxheight; i++){
-      box(3,3,3);
-      //}
+      if (this.legality == "Legal"){
+      ambientMaterial(0,160,0);
+      }
+      else if (this.legality == "Partial"){
+      ambientMaterial(160,160,0);
+      }
+      else if (this.legality == "Illegal"){
+      ambientMaterial(160,0,0);
+      }
+
+
+      box(boxheight,1,1);
+
       pop();
 
-      if (this.legality = "Partial"){
-        //getMaptexture(this.country,#006400);
-      }
+
 
 
 //  beginRotate = true;

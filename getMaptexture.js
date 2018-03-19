@@ -4,16 +4,14 @@
 function getMaptexture(geojson,color){
 
   var texture, context, color, canvas;
-  var colors = ['#69c242', '#ff7300', '#cf2030'];
 
   var projection = d3.geo.equirectangular()
     .translate([512, 256]).scale(163);
 
 
-
     d3.queue()
-        .defer(d3.json, 'world.json')
-        .defer(d3.json, 'candata.json')
+        .defer(d3.json, 'data/world.json')
+        .defer(d3.json, 'data/candata.json')
         .await(function (error, world, data) {
             if (error) {
                 console.error('err' + error);
@@ -24,21 +22,22 @@ function getMaptexture(geojson,color){
         });
 
 function drawMap(world, data) {
-  //d3.json('world.json', function (err, data) {
 
-      canvas = d3.select("body").append("canvas")
-        .attr({width: "1024px", height: "512px"})
-        .style("display", "none");
-
+  canvas = d3.select("body").append("canvas")
+    .attr({width: "1024px", height: "512px"})
+    .style("display", "none");
 
   d3.select("#loading").transition().duration(500)
-    .style("opacity", 0).remove();
+  .style("opacity", 0).remove();
 
+
+
+  var oceans1 = topojson.feature(world, world.objects.oceans1);
+  var oceans2 = topojson.feature(world, world.objects.oceans2);
+  var states = topojson.feature(world, world.objects.states);
   var countries = topojson.feature(world, world.objects.countries);
   var features = topojson.feature(world, world.objects.countries).features;
-  console.log(features);
-  //var testcountry = countries.find("id");
- //console.log(countries);
+
   var cancountryname ={};
 
 
@@ -64,16 +63,37 @@ function drawMap(world, data) {
 
     context = canvas.node().getContext("2d");
 
-    var path = d3.geo.path()
-      .projection(projection).context(context);
 
+
+
+    var path = d3.geo.path()
+      .projection(projection)
+      .context(context);
+
+
+
+
+    context.strokeStyle = "Darkblue";
+    context.lineWidth = 0.25;
+    context.fillStyle = "Darkblue";
+    context.beginPath();
+  //  path(oceans1);
+  //  path(oceans2);
+
+    //context.closePath();
+    context.fill();
+    //context.stroke();
+
+
+
+  context.beginPath();
     context.strokeStyle = "#111";
     context.lineWidth = 0.25;
-    context.fillStyle = color || "#222";
+    context.fillStyle =  "#222";
     context.beginPath();
     path(countries);
     context.fill();
-    context.stroke();
+    //context.stroke();
 
     //Partial USA India Russia Canada Australia | Brazil Spain Italy Colombia Germany |
     // New Zealand Czech Rep Austria Mexico Peru Thailand | France Argentina Poland Netherlands
@@ -83,7 +103,7 @@ function drawMap(world, data) {
     context.beginPath();
     var partial = ["168","73","135","27","8","22","49","79", "35","41", "120","40","9","102","124","156" ,"55","4", "127", "117"];
     for (i = 0; i <partial.length; i++) {
-    path(features[partial[i]]);
+    //path(features[partial[i]]);
     }
     context.fill();
     context.stroke();
@@ -93,7 +113,7 @@ function drawMap(world, data) {
     context.beginPath();
     var illegal = [];
     for (i = 0; i <partial.length; i++) {
-    path(features[illegal[i]]);
+    //path(features[illegal[i]]);
     }
     context.fill();
     context.stroke();
@@ -101,8 +121,9 @@ function drawMap(world, data) {
 
 
     maptextureurl = loadImage(canvas.node().toDataURL('image/png'),function() {console.log('loaded');d3loaded = true;});
-    return maptextureurl;
-    //canvas.remove();
+  return maptextureurl;
+    canvas.remove();
+
 
  }
  }
