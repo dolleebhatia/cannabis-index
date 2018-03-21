@@ -15,6 +15,9 @@ cityxy.addColumn('legality');
 
 
 
+
+
+
 for (let i = 0; i < canjsoncities.length; i++) {
     //let data = candata[i].split(/,/);
   let city = canjsoncities[i].city;
@@ -26,6 +29,8 @@ for (let i = 0; i < canjsoncities.length; i++) {
 
   let thetha = PI/2 +radians(lat);
   let phi = PI/2 - radians(lon) ;
+  let alt = r + mag / 2;
+  //offset altitude by half the intended box height so it's drawn right on Earth's surface
 
   let cX = -(r * sin(thetha) * cos(phi));
   let cZ = -(r * sin(phi)* sin(thetha));

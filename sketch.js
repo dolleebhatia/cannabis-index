@@ -5,12 +5,13 @@ let mapimg;
 let img;
 let maptextureurl;
 let d3loaded = false;
-let rx = 0;let ry = 0;let r =300;let angle = 0;
+let rx = 0;let ry = 0;let r =260;let angle = 0;
 let city3d;
 
 rows = [];label = [];
 let cityxy;let candata;let canjsoncities;let zoomZ = -50;
 
+let testSlider, testButton,test2Button, displayToggle, checkbox, selcountry;
 
 function preload() {
   //city3d = loadModel('NYC.obj');
@@ -27,17 +28,33 @@ function preload() {
   canjson = loadJSON("data/candata.json");
 }
 
+
+
+function windowResized() {
+  //console.log('resized');
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 function setup(){
-  createCanvas(ww,hh, WEBGL);
+  canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+  canvas.position(0, 0);
+  //createCanvas(ww,hh, WEBGL);
   canjsoncities = canjson.cities;
+
+
   populateTable();
+  getUI();
+
+
+
 }
 
 function draw(){
-  background(0);
-  push();
-    ortho();
-  pop();
+  background(20);
+
+  // ortho();
+  // orbitControl();
+
   pointLight(255,255,255, 0, -1, -1);
   //spointLight(255,255,255, -1, -1, -1);
   ambientLight(255,255,255);

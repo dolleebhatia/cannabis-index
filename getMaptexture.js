@@ -63,9 +63,6 @@ function drawMap(world, data) {
 
     context = canvas.node().getContext("2d");
 
-
-
-
     var path = d3.geo.path()
       .projection(projection)
       .context(context);
