@@ -6,6 +6,7 @@ let img;
 let maptextureurl;
 let d3loaded = false;
 let rx = 0;let ry = 0;let r =260;let angle = 0;
+let rotangle = 0;
 let city3d;
 
 rows = [];label = [];
@@ -40,22 +41,22 @@ function setup(){
   canvas.position(0, 0);
   //createCanvas(ww,hh, WEBGL);
   canjsoncities = canjson.cities;
-
+//   console.log(typeof features[72].geometry.coordinates);
 
   populateTable();
-  getUI();
+  //getUI();
 
 
 
 }
 
 function draw(){
-  background(20);
+  background(0);
 
-  // ortho();
+  ortho();
   // orbitControl();
 
-  pointLight(255,255,255, 0, -1, -1);
+  //pointLight(255,255,255, 0, -1, -1);
   //spointLight(255,255,255, -1, -1, -1);
   ambientLight(255,255,255);
 
@@ -64,6 +65,7 @@ function draw(){
 
 
   rotateY(rx);
+  rotateY(rotangle);
   rotateX(ry);
   if (d3loaded){texture(maptextureurl);}
   else {setTimeout(function(){ console.log("timeout3000"); }, 3000);}
@@ -73,15 +75,16 @@ function draw(){
 
   // Rotate the globe if the mouse is pressed
   if (mouseIsPressed) {
-    rx += (mouseX - pmouseX) / 100;
-    ry += (mouseY - pmouseY) / -800;
-  }
-  let dirX = mouseX - width / 2;
-  let dirY = mouseY - height / 2;
+      rx += (mouseX - pmouseX) / 100;
+      ry += (mouseY - pmouseY) / -800;
+    }
+    let dirX = mouseX - width / 2;
+    let dirY = mouseY - height / 2;
 
-  for (let i = 0; i< cityxy.rows.length; i++){
-  drawData(i);
+    for (let i = 0; i< cityxy.rows.length; i++){
+    drawData(i);
   }
+  rotangle = rotangle + 0.01;
 }
 
 function mouseWheel(event) {

@@ -24,14 +24,14 @@ function drawData(row){
     this.boxheight = this.d_mag;
     this.box = box;
     this.color;
-    this.alpha = 50;
+    this.alpha = 10;
 
 
     this.scaleVal = 1.5;
     this.angleDivide = 20;
-    this.speed = 1;
-    this.resolution = 10;
-    this.size = 5;
+    this.speed = 0.4;
+    this.resolution = 3;
+    this.size = 1;
     this.smokex = 0;
     this.smokey = 0;
     this.smokez = 0;
@@ -61,33 +61,33 @@ function drawData(row){
         //pop();
        //} else {
 
-        // if (this.legality == "Legal"){specularMaterial(0,100,0);}
-        // else if (this.legality == "Partial"){specularMaterial(100,100,0);}
-        // else if (this.legality == "Illegal"){specularMaterial(100,0,0);}
-      //  bbox = box(boxheight*10,1,1);
-          sphere(this.size);
+        if (this.legality == "Legal"){specularMaterial(0,100,0);}
+        else if (this.legality == "Partial"){specularMaterial(100,100,0);}
+        else if (this.legality == "Illegal"){specularMaterial(100,0,0);}
+      bbox = box(boxheight*10,1,1);
+      //    sphere(this.size);
       //  var z_increment=0.02;
-        //normalMaterial(this.alpha);
+      //  normalMaterial();
           //noFill();
       //  noStroke();
-          for (this.smokex = 0; this.smokex < boxheight*5; this.smokex += this.resolution) {
-             this.smokey = offset + (cos(angle + t) * this.scaleVal);
+        //  for (this.smokex = 0; this.smokex < boxheight*5; this.smokex += this.resolution) {
+        //     this.smokey = offset + (cos(angle + t) * this.scaleVal);
             //   rotateX(frameCount * 0.001);
-            push();
-              translate(this.smokex+this.size, this.smokey, this.smokez);
-
-              rotateY(frameCount * 0.001);
-              noFill();
-              //ellipse (0, 0, this.size,this.size);
-              sphere(this.size);
-            pop();
-            angle += angleInc;
-          }
+            // push();
+            //   translate(this.smokex+this.size, this.smokey, this.smokez);
+            //
+            //   rotateY(frameCount * 0.001);
+            //   noFill();
+            //   //ellipse (0, 0, this.size,this.size);
+            //   sphere(this.size);
+            // pop();
+          //  angle += angleInc;
+        //  }
           //angle += angleInc;
 
       pop();
 
-  t += this.speed / 1000;
+//  t += this.speed / 1000;
 
     // var smokecontrols = new function() {
     //     this.scaleVal = 47;

@@ -1,9 +1,9 @@
 //Add callback
-
+var features;
 //D3
 function getMaptexture(geojson,color){
 
-  var texture, context, color, canvas;
+  var geojson, texture, context, color, canvas;
 
   var projection = d3.geo.equirectangular()
     .translate([512, 256]).scale(163);
@@ -36,7 +36,7 @@ function drawMap(world, data) {
   var oceans2 = topojson.feature(world, world.objects.oceans2);
   var states = topojson.feature(world, world.objects.states);
   var countries = topojson.feature(world, world.objects.countries);
-  var features = topojson.feature(world, world.objects.countries).features;
+   features = topojson.feature(world, world.objects.countries).features;
 
   var cancountryname ={};
 
@@ -60,47 +60,47 @@ function drawMap(world, data) {
         }
      });
 
-
     context = canvas.node().getContext("2d");
 
     var path = d3.geo.path()
       .projection(projection)
       .context(context);
 
-
-
-
     context.strokeStyle = "Darkblue";
     context.lineWidth = 0.25;
     context.fillStyle = "Darkblue";
     context.beginPath();
-  //  path(oceans1);
+  // path(oceans1);
   //  path(oceans2);
-
-    //context.closePath();
     context.fill();
     //context.stroke();
 
 
 
   context.beginPath();
-    context.strokeStyle = "#111";
-    context.lineWidth = 0.25;
-    context.fillStyle =  "#222";
+    context.strokeStyle = "#222";
+    context.lineWidth = 0.10;
+    context.fillStyle =  "#333";
     context.beginPath();
+    //path(geojson);
     path(countries);
+    //for single countries eg India - get index from code or console.log features
+    //path(features["72"]);
     context.fill();
-    //context.stroke();
+    context.stroke();
 
-    //Partial USA India Russia Canada Australia | Brazil Spain Italy Colombia Germany |
+    //Partial
+    //USA India Russia Canada Australia | Brazil Spain Italy Colombia Germany |
     // New Zealand Czech Rep Austria Mexico Peru Thailand | France Argentina Poland Netherlands
     //start --> Croatia Ukaraine Belgium Turkey Bulgaria Denmark Romani Switzerland Costa Rica Norway Estonia Portugal Slovenia
     //Greece Ecuador Paraguay
     context.fillStyle = "#191900";
     context.beginPath();
-    var partial = ["168","73","135","27","8","22","49","79", "35","41", "120","40","9","102","124","156" ,"55","4", "127", "117"];
+    var partial = ["168","73","133","27","8","22","49","79", "35","41", "120","40","9","102","124","156" ,"55","4", "127", "117"];
     for (i = 0; i <partial.length; i++) {
-    //path(features[partial[i]]);
+    //path(features[partial[i]-1]);
+    //console.log(path(features[72]));
+    //(path(features[72]) = india
     }
     context.fill();
     context.stroke();
@@ -110,7 +110,7 @@ function drawMap(world, data) {
     context.beginPath();
     var illegal = [];
     for (i = 0; i <partial.length; i++) {
-    //path(features[illegal[i]]);
+    //  path(features[illegal[i]]);
     }
     context.fill();
     context.stroke();
@@ -118,9 +118,9 @@ function drawMap(world, data) {
 
 
     maptextureurl = loadImage(canvas.node().toDataURL('image/png'),function() {console.log('loaded');d3loaded = true;});
-  return maptextureurl;
+    return maptextureurl;
     canvas.remove();
+    return features;
 
-
- }
+  }
  }
